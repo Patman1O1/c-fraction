@@ -1,2 +1,2 @@
 // Local Includes
-#include <fraction/c_fraction.h>
+#include <fraction/fraction.h>
