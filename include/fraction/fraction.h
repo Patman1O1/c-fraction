@@ -4,6 +4,7 @@
 // ISO Includes
 #include <math.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -78,6 +79,8 @@ static inline long double c_frac_to_ldouble(const struct c_frac frac) {
         ? (long double)frac.num / (long double)frac.den
         : NAN;
 }
+
+extern char* c_frac_to_str(struct c_frac frac, char* str, size_t len);
 
 extern void c_frac_print(struct c_frac frac);
 
