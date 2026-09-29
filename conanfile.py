@@ -47,7 +47,7 @@ class CFraction(ConanFile):
     def package(self) -> None: CMake(self).install()
 
     def package_info(self) -> None:
-        self.cpp_info.set_property("cmake_target_name", "fraction::c_fraction")
+        self.cpp_info.set_property("cmake_target_name", "c_fraction::c_fraction")
         self.cpp_info.libs = ["c_fraction"]
         if not bool(self.options.build_shared_libs):
             self.cpp_info.defines = ["C_FRACTION_STATIC_DEFINE"]
