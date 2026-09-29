@@ -80,7 +80,7 @@ static inline long double c_frac_to_ldouble(const struct c_frac frac) {
         : NAN;
 }
 
-extern char* c_frac_to_str(struct c_frac frac, char* str, size_t len);
+extern char* c_frac_to_str(struct c_frac frac, char* str, size_t max_len);
 
 extern void c_frac_print(struct c_frac frac);
 
