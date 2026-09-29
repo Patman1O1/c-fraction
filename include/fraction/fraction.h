@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -80,9 +81,21 @@ static inline long double c_frac_to_ldouble(const struct c_frac frac) {
         : NAN;
 }
 
-extern char* c_frac_to_str(struct c_frac frac, char* str, size_t max_len);
+static inline int c_frac_to_str(
+    const struct c_frac frac,
+    char* const str,
+    const size_t max_len
+) {
+    return snprintf(str, max_len, "%lld/%lld", frac.num, frac.den);
+}
 
-extern void c_frac_print(struct c_frac frac);
+static inline int c_frac_print(const struct c_frac frac) {
+    return printf("%lld/%lld", frac.num, frac.den);
+}
+
+static inline int c_frac_println(const struct c_frac frac) {
+    return printf("%lld/%lld\n", frac.num, frac.den);
+}
 
 #ifdef __cplusplus
 }
