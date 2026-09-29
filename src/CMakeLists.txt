@@ -1,25 +1,25 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Target: c_fraction
-# Alias: fraction::c_fraction
+# Alias: c_fraction::c_fraction
 # Type: Static Library
-# Dependencies: fraction::c_fraction_headers
+# Dependencies: c_fraction::c_fraction_headers
 # ─────────────────────────────────────────────────────────────────────────────
 # Target definition
 add_library(c_fraction STATIC)
 
 # Target alias
-add_library(fraction::c_fraction ALIAS c_fraction)
+add_library(c_fraction::c_fraction ALIAS c_fraction)
 
 # Target sources
 target_sources(c_fraction
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/c_fraction.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/fraction.c
 )
 
 # Target dependencies
 target_link_libraries(c_fraction
     PUBLIC
-        fraction::c_fraction_headers
+        c_fraction::c_fraction_headers
 )
 
 # Export configuration
@@ -64,7 +64,7 @@ endif()
 
 # Generate the export header into the build tree
 generate_export_header(c_fraction
-        EXPORT_FILE_NAME include/c_fraction/${EXPORT_HEADER_FILE}
+        EXPORT_FILE_NAME include/fraction/${EXPORT_HEADER_FILE}
 )
 
 # Make the generated export header visible to this target and its consumers
@@ -86,7 +86,7 @@ if(NOT CMAKE_SKIP_INSTALL_RULES)
             INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
     # Install the generated export header
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/include/c_fraction/${EXPORT_HEADER_FILE}
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/include/fraction/${EXPORT_HEADER_FILE}
             COMPONENT c_fraction
-            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/c_fraction)
+            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/fraction)
 endif()
