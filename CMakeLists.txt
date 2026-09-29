@@ -70,14 +70,14 @@ endif()
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Target: c_fraction_headers
-# Alias: fraction::c_fraction_headers
+# Alias: c_fraction::c_fraction_headers
 # Type: Interface Library
 # ───────────────────────────────────────────────────────────────────────────── 
 # Target definition
 add_library(c_fraction_headers INTERFACE)
 
 # Target alias
-add_library(fraction::c_fraction_headers 
+add_library(c_fraction::c_fraction_headers 
     ALIAS
         c_fraction_headers
 )
